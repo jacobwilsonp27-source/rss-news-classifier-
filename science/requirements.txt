@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+feedparser
+transformers
+torch
+sentencepiece

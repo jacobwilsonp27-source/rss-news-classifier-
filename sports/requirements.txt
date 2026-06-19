@@ -1,0 +1,11 @@
+# Sports module dependencies
+# Tested against Python 3.12.10 (recommended) and Python 3.14.6
+# If a package below has no pre-built wheel yet for your exact Python
+# version, install Python 3.12.10 instead -- it has full support today.
+
+fastapi==0.115.6
+uvicorn==0.34.0
+feedparser==6.0.11
+transformers==4.47.1
+torch>=2.5.1
+pydantic==2.10.4

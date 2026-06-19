@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Category · Pulsewire</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body data-page="category">
+
+  <!-- ── Sidebar ──────────────────────────────────────────── -->
+  <aside id="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon"><i class="bi bi-broadcast"></i></div>
+      <div>
+        <div class="sidebar-logo-text">Pulsewire</div>
+        <div class="sidebar-logo-sub">AI News Platform</div>
+      </div>
+    </div>
+    <nav class="sidebar-section">
+      <a class="nav-link" data-page-link="home" href="index.html">
+        <i class="bi bi-house-fill"></i><span>Home</span>
+      </a>
+      <a class="nav-link" data-page-link="search" href="search.html">
+        <i class="bi bi-search"></i><span>Search</span>
+      </a>
+      <div class="sidebar-section-label" style="margin-top:16px;">Categories</div>
+      <div id="categoryLinks"></div>
+    </nav>
+  </aside>
+
+  <div id="overlay"></div>
+
+  <!-- ── Main ─────────────────────────────────────────────── -->
+  <div id="main">
+    <header class="top-bar">
+      <button id="hamburger"><i class="bi bi-list"></i></button>
+      <span class="top-bar-title" id="topbarCat">Category</span>
+      <div class="top-bar-actions">
+        <a class="top-bar-icon-btn" href="search.html" title="Search">
+          <i class="bi bi-search"></i>
+        </a>
+      </div>
+    </header>
+
+    <div class="page-content">
+      <!-- Category heading -->
+      <div class="cat-header">
+        <div class="cat-header-icon">
+          <i id="catIcon"></i>
+        </div>
+        <h1 class="cat-page-title" id="catTitle">Category</h1>
+      </div>
+
+      <!-- Sentiment filter -->
+      <div class="sentiment-filter" id="sentimentFilter">
+        <button class="filter-btn active" data-sent="all">All</button>
+        <button class="filter-btn" data-sent="positive">
+          <i class="bi bi-arrow-up-circle-fill" style="color:#16A34A"></i> Positive
+        </button>
+        <button class="filter-btn" data-sent="negative">
+          <i class="bi bi-arrow-down-circle-fill" style="color:#B91C1C"></i> Negative
+        </button>
+        <button class="filter-btn" data-sent="neutral">
+          <i class="bi bi-dash-circle-fill" style="color:#64748B"></i> Neutral
+        </button>
+      </div>
+
+      <!-- Article grid -->
+      <div class="news-grid" id="catGrid">
+        <div class="state-box"><div class="spinner"></div><p>Loading…</p></div>
+      </div>
+
+      <!-- Pagination -->
+      <div id="catPager"></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+<script src="api.js"></script>
+<script src="app.js"></script>
+  <script>
+    // Sync top bar title when category loads
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(location.search);
+      const meta   = getCategoryByKey(params.get("cat"));
+      if (meta) document.getElementById("topbarCat").textContent = meta.label;
+    });
+  </script>
+</body>
+</html>

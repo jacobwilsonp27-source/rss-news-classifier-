@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Article · Pulsewire</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body data-page="article">
+
+  <!-- ── Sidebar ──────────────────────────────────────────── -->
+  <aside id="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon"><i class="bi bi-broadcast"></i></div>
+      <div>
+        <div class="sidebar-logo-text">Pulsewire</div>
+        <div class="sidebar-logo-sub">AI News Platform</div>
+      </div>
+    </div>
+    <nav class="sidebar-section">
+      <a class="nav-link" data-page-link="home" href="index.html">
+        <i class="bi bi-house-fill"></i><span>Home</span>
+      </a>
+      <a class="nav-link" data-page-link="search" href="search.html">
+        <i class="bi bi-search"></i><span>Search</span>
+      </a>
+      <div class="sidebar-section-label" style="margin-top:16px;">Categories</div>
+      <div id="categoryLinks"></div>
+    </nav>
+  </aside>
+
+  <div id="overlay"></div>
+
+  <!-- ── Main ─────────────────────────────────────────────── -->
+  <div id="main">
+    <header class="top-bar">
+      <button id="hamburger"><i class="bi bi-list"></i></button>
+      <button onclick="history.back()" class="top-bar-icon-btn" title="Back" style="margin-right:auto">
+        <i class="bi bi-arrow-left"></i>
+      </button>
+      <span class="top-bar-title">Article</span>
+      <div class="top-bar-actions">
+        <a class="top-bar-icon-btn" href="search.html" title="Search">
+          <i class="bi bi-search"></i>
+        </a>
+      </div>
+    </header>
+
+    <div class="page-content">
+      <!-- All article content is rendered here by app.js -->
+      <div id="articleWrap">
+        <div class="state-box"><div class="spinner"></div><p>Loading article…</p></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

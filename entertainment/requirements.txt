@@ -1,0 +1,12 @@
+# Entertainment Module - Requirements
+# Target runtime: Python 3.14.x
+# Note: At time of writing, the latest publicly released Python 3.14 patch
+# is earlier than ".6" — install whatever 3.14.x patch is available to your
+# team and these packages will work the same.
+
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+feedparser>=6.0.11
+transformers>=4.44.0
+torch>=2.4.0
+sentencepiece>=0.2.0
