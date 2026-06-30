@@ -7,7 +7,7 @@
  */
 
 // Change this to your server address when deploying.
-const API_BASE = "http://localhost:8000";
+const API_BASE = "http://localhost:8001";
 
 // One entry per category. `apiLabel` must exactly match
 // what the backend models write into the `category` column.
