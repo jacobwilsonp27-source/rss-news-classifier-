@@ -58,20 +58,33 @@ MODULE_DATABASES = {
 
 
 def query_db(db_path: str, sql: str, params: tuple = ()) -> List[dict]:
-    """Run a SELECT on one module's database. Returns [] if DB is missing."""
+    print(f"Looking for DB: {db_path}")
+
     if not os.path.exists(db_path):
+        print("DB DOES NOT EXIST!")
         return []
+
+    print("DB FOUND!")
+
     try:
         conn = sqlite3.connect(db_path)
         conn.row_factory = sqlite3.Row
+
+        cur = conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table';"
+        )
+        print("Tables:", cur.fetchall())
+
         cur = conn.execute(sql, params)
         rows = [dict(r) for r in cur.fetchall()]
+        print("Rows:", len(rows))
+
         conn.close()
         return rows
+
     except Exception as exc:
         print(f"[DB Error] {db_path}: {exc}")
         return []
-
 
 def resolve_db(label: str, path: str) -> str:
     """Resolve the actual DB path for a module, including legacy alternates."""
