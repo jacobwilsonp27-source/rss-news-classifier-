@@ -28,8 +28,11 @@ app = FastAPI(title="AI-Powered News API – Combined")
 # Tighten allow_origins to your frontend URL in production.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["GET"],
+    allow_origins=[
+        "https://rss-news-classifier-eu88.vercel.app"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
